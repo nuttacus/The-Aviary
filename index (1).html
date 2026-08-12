@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Aviary (WIP)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wip-banner">work in progress — layout & balance still being tuned</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <h1>The <span>Aviary</span></h1>
+      <div class="build-tag">build v0.3-ish — parrot care sim</div>
+    </div>
+    <div class="subtitle">four beaks, one household. still figuring out the balance on decay rates.</div>
+  </header>
+
+  <div class="aviary" id="aviary"></div>
+
+  <div class="stage">
+    <div class="stats-panel">
+      <div id="stats"></div>
+      <div class="actions" id="actions"></div>
+    </div>
+
+    <div>
+      <div class="forage-panel">
+        <h3>Forage Box</h3>
+        <div class="forage-grid" id="forageGrid"></div>
+      </div>
+      <div class="log-panel">
+        <h3>Aviary Log</h3>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    no save/load yet — resets on refresh.<br>
+    <!-- TODO: add localStorage once this moves off the sandbox -->
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

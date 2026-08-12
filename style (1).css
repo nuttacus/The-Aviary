@@ -1,0 +1,154 @@
+/* TODO: pick real fonts, just using system defaults for now */
+/* TODO: fix color contrast on the muted text, hard to read on dark bg */
+
+:root{
+  --bg: #202020;
+  --panel: #2b2b2b;
+  --panel-light: #363636;
+  --accent: #f2a93b;
+  --alert: #e8674a;
+  --text: #e8e8e8;
+  --muted: #999;
+  --ok: #4f8f6d;
+}
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif; /* swap for real typeface later */
+}
+
+.wip-banner{
+  background: repeating-linear-gradient(45deg, #e8674a, #e8674a 12px, #c94f34 12px, #c94f34 24px);
+  color: #fff;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px;
+  letter-spacing: 0.05em;
+}
+
+.wrap{ max-width: 880px; margin: 0 auto; padding: 20px 16px 50px; }
+
+header.hero{
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444;
+}
+header.hero h1{
+  margin: 0 0 4px;
+  font-size: 2rem;
+}
+header.hero h1 span{ color: var(--accent); }
+.subtitle{ color: var(--muted); font-size: 0.8rem; }
+.build-tag{ font-size: 0.65rem; color: #666; font-family: monospace; }
+
+.aviary{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+/* bird-card styling is a placeholder, want to redo these with actual
+   illustrations eventually instead of the div soup below */
+.bird-card{
+  background: var(--panel);
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid #444;
+  position: relative;
+}
+.bird-card.active{ border-color: var(--accent); }
+.bird-card .perch-name{ font-weight: bold; }
+.bird-card .species{ font-size: 0.65rem; color: var(--muted); }
+.bird-card .mood-tag{ position: absolute; top: 8px; right: 8px; }
+.bird-card svg{ display:block; margin: 6px auto; }
+
+.scream-badge, .molt-badge{
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  color: #fff;
+}
+.scream-badge{ background: var(--alert); }
+.molt-badge{ background: var(--ok); }
+
+.stage{
+  background: var(--panel);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 640px){ .stage{ grid-template-columns: 1fr; } }
+
+.stat-row{ margin-bottom: 8px; }
+.stat-row .label{
+  display: flex; justify-content: space-between;
+  font-size: 0.7rem; color: var(--muted);
+}
+.bar{ height: 8px; background: var(--panel-light); }
+.bar > div{ height: 100%; }
+.fill-hunger{ background: var(--accent); }
+.fill-hydration{ background: #5ec8d8; }
+.fill-enrichment{ background: var(--ok); }
+.fill-bond{ background: #e397c9; }
+.fill-health{ background: var(--alert); }
+
+.actions{ display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 12px; }
+button.act{
+  background: var(--panel-light);
+  color: var(--text);
+  border: 1px solid #444;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.act:hover{ background: var(--accent); color: #000; }
+button.act:disabled{ opacity: 0.35; cursor: not-allowed; }
+
+/* placeholder for a feature that isn't built yet - leaving the button
+   visible so I remember to come back to it */
+button.act.coming-soon{
+  background: transparent;
+  border: 1px dashed #555;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.forage-grid{ display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; margin-bottom: 12px; }
+.forage-cell{
+  aspect-ratio: 1;
+  background: var(--panel-light);
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+.forage-cell.found{ background: var(--ok); }
+
+.log{
+  background: var(--bg);
+  padding: 8px 10px;
+  height: 140px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  border: 1px solid #444;
+}
+.log div.alert{ color: var(--alert); }
+.log div.good{ color: var(--ok); }
+.log div.debug{ color: #555; } /* console-log style lines, remove before ship */
+
+footer{
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.65rem;
+  color: #555;
+  font-family: monospace;
+}
+
+/* NOTE: no border-radius/shadows/transitions pass yet - functionality first */
